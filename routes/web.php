@@ -15,9 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\AdminContactController;
 
 Route::get('/', function () {
     return view('contact_mail');
 });
 
 Route::post('/send', [MailController::class, "sendContactMail"])->name('send.contact_mail');
+
+Route::get('/admin/contacts', [AdminContactController::class, 'index'])->name('admin.contacts');
